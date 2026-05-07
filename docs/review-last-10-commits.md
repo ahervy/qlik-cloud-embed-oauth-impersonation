@@ -35,8 +35,7 @@ The richer Playwright coverage depends on a live Qlik Cloud tenant and demo app 
 - `git diff --check`: passed.
 - `node --check server.js`: passed.
 - `npx playwright test --list`: passed, discovering 42 tests across Chromium and WebKit.
-- `npx playwright test tests/backend-health.spec.js tests/core-functionality.spec.js --project=chromium`: initially blocked because `.env` is not present.
-- Retried with `template copy.env` loaded through `dotenv`: 7 tests passed, 4 failed, and 5 did not run. The failures are caused by placeholder tenant configuration (`TENANT_URI=<QLIK_CLOUD_TENANT_URI>`), which makes user provisioning fail before authenticated UI tests can load the dashboard.
+- `npx playwright test tests/backend-health.spec.js tests/core-functionality.spec.js --project=chromium`: 7 passed, 4 failed, and 5 did not run. The first failing test is backend user provisioning (`GET /` after login), where Qlik returns `OAUTH-14: Invalid client_id - OAuth client is not authorized`. The UI failures are downstream timeouts because the dashboard is not served after that 500.
 
 ## Recommendation
 
