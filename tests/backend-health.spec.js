@@ -118,7 +118,7 @@ test.describe('Backend Health & Diagnostics', () => {
         'ensure the client has the "impersonation" grant type enabled on the tenant.\n' +
         `Response: ${body}`;
       console.log(msg);
-      test.fail(true, msg);
+      throw new Error(msg);
     }
 
     expect(res.status(), `POST /access-token returned ${res.status()}`).toBe(200);

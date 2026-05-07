@@ -103,10 +103,10 @@ test.describe('Core App Functionality', () => {
     await expect(page.locator('.data-panel-header')).toBeVisible();
     console.log('PASS: Data panel card is rendered');
 
-    // Info banner explaining REST-call behaviour
+    // Info banner explaining backend QIX behaviour
     const infoBanner = page.locator('.data-panel-info');
     await expect(infoBanner).toBeVisible();
-    await expect(infoBanner).toContainText('server-side REST call');
+    await expect(infoBanner).toContainText('backend through a QIX call');
     console.log('PASS: Info banner is visible');
 
     // Home runs updateTable() on DOMContentLoaded; the button stays disabled until
